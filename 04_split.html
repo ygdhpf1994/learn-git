@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script type="text/javascript">
+		//split:
+		//功能：1.将字符串按照指定的字符进行切割，切割后的每部分，作为数组的一个元素
+		//返回值：数组
+		var msg = 'hello world I am tie chui mei mei';
+		var arr = msg.split(' ');
+		document.write(arr);
+		var tel = '024-87654321';
+		arr = tel.split('-')	//arr ===> ['024', '87654321']
+		document.write(arr[0])	//'024'
+		document.write(arr[1])	//'87654321'
+
+		//找到邮件地址的用户名和域名
+		var email = 'cuijn@qq.com';
+		var array = email.split('@')
+		array[0];
+		array[1]
+	</script>
+</body>
+</html>

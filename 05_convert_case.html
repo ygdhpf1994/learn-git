@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script type="text/javascript">
+		var msg = 'Hello, World';
+		var lc = msg.toLowerCase();
+		// document.write(lc);
+		var uc = msg.toUpperCase();
+		// document.write(uc);
+
+		function toLowerCase(str) {
+			var code;
+			var result = '';
+			for(var i=0; i<str.length; i++) {
+				code = str.charCodeAt(i);
+				if(code>=65 && code<=90) {
+					//当前字符是大写的，需要转换为小写
+					result += String.fromCharCode(code + 32)
+				} else {
+					result += str[i]
+				}
+			}
+
+			return result;
+		}
+
+		var newStr = toLowerCase(msg);
+		document.write(newStr);
+	</script>
+</body>
+</html>

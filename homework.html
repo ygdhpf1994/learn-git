@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.error {
+			color: red;
+		}
+		.hidden {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" placeholder="请输入用户名" id="username"><span class="error hidden" id="user-error">
+		数字、字母下划线，数字不能开头，长度6-20
+	</span><br>
+	<input type="text" placeholder="请输入密码" id="password"><br>
+	<input type="text" placeholder="请再次输入密码" id="password-confirm"><br>
+	<input type="text" placeholder="请输入邮箱" id="email"><br>
+	<input type="text" placeholder="请输入手机号" id="mobile"><br>
+	<input type="button" value="提交"><br>
+	
+	<script>
+		// 去除字符串中的所有空格
+		var msg = ' c u i j i n g n a n ';
+		var newMsg = msg.replace(/ /g, '');
+		// alert(newMsg);
+
+		// alert(msg.split(' ').join(''));
+
+		// 去除字符串开头和结尾的空格
+		var info = '     hello world     ';
+		// var result = '';
+		while(info[0] === ' ') {
+			info = info.replace(' ', '');
+		}
+
+		while(info[info.length-1] === ' ') {
+			info = info.slice(0, -1);
+		}
+
+		// alert(info);
+		
+
+		//  写一个注册页面，包含：
+		//  用户名
+		//  密码
+		//  密码确认
+		//  邮箱地址
+		//  手机号码
+		//  提交按钮
+
+		// 在点击按钮时，进行验证：
+		// 用户名只能包含数字、字母和下划线, 数字不可以开头，长度不低于6，不高于20
+		// 密码必须一致
+		// 邮箱名必须包含字符串'@‘
+		// 手机号码必须为11位
+
+
+		document.querySelector('input[type="button"]').onclick = function () {
+			checkUsername();
+			checkPassword();
+			checkEmail();
+			checkMobile();
+		}
+
+		function checkUsername () {
+			var username = document.querySelector('#username').value;	//字符串
+			var span = document.querySelector('#user-error');
+
+			
+
+			//长度不低于6，不高于20
+			if(username.length < 6 || username.length > 20) {
+				// document.querySelector('#user-error').className += ' hidden';
+				span.classList.remove('hidden');
+				return;
+			} else {
+				span.classList.add('hidden');
+			}
+
+			//数字不可以开头
+			var firstCharCode = username.charCodeAt(0);
+			if(firstCharCode >=48 && firstCharCode <= 57) {
+				span.classList.remove('hidden');
+				return;
+			} else {
+				span.classList.add('hidden');
+			}
+
+			// 用户名只能包含
+			// 数字、字母和下划线, 
+			var code;
+			var isShuzi, isZimu, isXiaHuaXian;
+
+			for(var i=0; i<username.length; i++) {
+				isShuzi = false, isZimu = false, isXiaHuaXian = false;
+				code = username.charCodeAt(i);
+
+				if(code>=48 && code<=57) {
+					isShuzi = true;
+				} else if (code === 95) {
+					isXiaHuaXian = true;
+				} else if (code>=97&&code<=122 || code>=65&&code<=90) {
+					isZimu = true;
+				} else {
+					span.classList.remove('hidden');
+					return;
+				}
+			}
+
+
+
+			span.classList.add('hidden');
+		}
+		function checkPassword () {
+
+		}
+		function checkEmail () {
+
+		}
+		function checkMobile () {
+
+		}
+
+		var id;
+		window.onmousemove = function () {
+			clearTimout(id);
+			id = setTimeout(function () {
+				//TODO:
+			})
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script type="text/javascript">
+		//字符串对象：将基本类型的字符串包装到了对象中
+		//为了方便我们操作字符串
+
+		//创建：一旦被创建，永远不会变
+		//构造函数
+		var strObj = new String('hello');
+		// document.write(typeof strObj + '<br>');
+
+		//字面量
+		var msg = 'world';
+		// document.write(typeof msg + '<br>');
+
+		//字符串属性：
+		//length长度，指的是字符串中字符的个数
+		document.write(msg.length + '<br>');
+
+		var myname = '崔景楠';
+		document.write(myname.length + '<br>');
+
+		var conitsiha = 'こんにちは';
+		document.write(conitsiha.length + '<br>');
+
+		var aisatsu = 'こんにちは, my name is "崔景楠"';
+		document.write(aisatsu.length)
+
+		//访问字符串中的字符
+		//1. 通过索引 myname[1]
+		for(var i=0; i<myname.length; i++) {
+			document.write(myname[i] + '<br>');
+		}
+
+		//2. 通过一个方法 character(字符)
+		//	myname.charAt(2)	//楠
+		document.write(myname.charAt(2) + '<br>');
+
+		document.write(myname[3] + '<br>');			//undefined
+		document.write(myname.charAt(3) + '<br>');	//''
+		document.write('结尾<br>');
+
+		//3. 取得某个位置的字符编码charCodeAt(index)
+		document.write(myname.charCodeAt(2) + '<br>');
+		document.write(conitsiha.charCodeAt(0));
+
+
+		document.write('a'.charCodeAt(0) + '<br>');
+		document.write('z'.charCodeAt(0) + '<br>');
+
+
+		var info = 'hello dabiaojiu';
+		//遍历字符串中的每个字符
+		for(var i=0; i<info.length; i++) {
+			document.write(info[i] + ';');
+		}
+
+		//判断字符串是否全为大写字母
+		var str = 'HELLO WORLD';
+		document.write('=======================<br>');
+		
+		
+
+		for(var i=0; i<str.length; i++) {
+			// document.write(str.charCodeAt(i) + '<br>');
+			if(str.charCodeAt(i) <65 || str.charCodeAt(i) > 90) {
+				document.write('不是全是大写');
+				break;
+			}
+
+			//错误的：
+			// if(str.charCodeAt(i) >=65 && str.charCodeAt(i) <= 90) {
+			// 	//当前字符是大写
+
+			// } else{
+			// 	//当前字符不是大写
+			// }
+		}
+
+		if(i === str.length) {
+			//循环是正常结束的
+			document.write('全是大写');
+		}
+
+
+		//统计一个字符串中大写和小写字母的个数
+
+		var str2 = "Hello World";
+
+		//Hello World ===> Title case
+		//hello world ===> lower case
+		//HELLO WORLD ===> upper case
+
+		var lowerCount = 0, upperCount = 0;
+		var spaceCount = 0;
+		var code;
+		for(var i=0; i<str2.length; i++) {
+			code = str2.charCodeAt(i);
+			if(code>=65 && code<=90) {
+				//大写字母
+				upperCount++;
+			}
+
+			if(code>=97 && code<=122) {
+				lowerCount++;
+			}
+
+			if(code === 32) {
+				spaceCount++;
+			}
+		}
+
+		document.write('lowerCount=' + lowerCount);
+		document.write('upperCount=' + upperCount);
+		document.write('spaceCount=' + spaceCount);
+
+
+	</script>
+</body>
+</html>

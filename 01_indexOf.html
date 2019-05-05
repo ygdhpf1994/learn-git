@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script type="text/javascript">
+		//
+		var str = 'hello world';
+		//找到字符串的所有l所在位置
+		var index = str.indexOf('l');
+
+		while(index !== -1) {
+			document.write(index + '<br>');
+			index = str.indexOf('l', index+1)
+		}
+
+		//找到world在hello world中的位置
+		index = str.indexOf('word');
+		document.write(index + '<br>');
+
+		//从文件路径中，找出文件名开始的位置
+		var path = '/usr/cuijn/html5/phase_2/string.pptx';
+		var position = path.lastIndexOf('/') + 1;
+		for(var i=position;i<path.length; i++) {
+			document.write(path[i]);
+		}
+
+		document.write('====================<br>')
+		//从文件名中，找出扩展名开始的位置
+		// var path = '/usr/cuijn/html5/phase_2/string.pptx';
+		position = path.lastIndexOf('.') + 1;
+		for(var i=position;i<path.length; i++) {
+			document.write(path[i]);
+		}
+
+		//在一个邮件地址中，查找出用户名和域名
+		var email = 'cui.jingnan2018@gmail.com';
+		var AtIndex = email.indexOf('@');
+		var username = '', domain = '';
+		for(var i=0; i<email.length; i++) {
+			if(i < AtIndex) {
+				//用户名
+				username += email[i];
+			} else if(i > AtIndex) {
+				//域名
+				domain += email[i];
+			} else {
+				//@
+			}
+		}
+
+		document.write(username + '<br>');
+		document.write(domain + '<br>');
+
+	</script>
+</body>
+</html>
